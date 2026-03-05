@@ -1,0 +1,51 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource-variable/playfair-display';
+---
+
+<style is:inline>
+  :root {
+    --aw-font-sans: 'Inter Variable';
+    --aw-font-serif: 'Playfair Display Variable';
+    --aw-font-heading: 'Playfair Display Variable';
+
+    --aw-color-primary: rgb(180 130 80);
+    --aw-color-secondary: rgb(160 110 60);
+    --aw-color-accent: rgb(200 160 100);
+
+    --aw-color-text-heading: rgb(0 0 0);
+    --aw-color-text-default: rgb(16 16 16);
+    --aw-color-text-muted: rgb(16 16 16 / 66%);
+    --aw-color-bg-page: rgb(255 255 255);
+
+    --aw-color-bg-page-dark: rgb(12 10 9);
+
+    ::selection {
+      background-color: rgb(200 160 100 / 30%);
+    }
+  }
+
+  .dark {
+    --aw-font-sans: 'Inter Variable';
+    --aw-font-serif: 'Playfair Display Variable';
+    --aw-font-heading: 'Playfair Display Variable';
+
+    --aw-color-primary: rgb(200 160 100);
+    --aw-color-secondary: rgb(180 140 80);
+    --aw-color-accent: rgb(220 180 120);
+
+    --aw-color-text-heading: rgb(245 240 235);
+    --aw-color-text-default: rgb(220 215 210);
+    --aw-color-text-muted: rgb(220 215 210 / 60%);
+    --aw-color-bg-page: rgb(12 10 9);
+
+    ::selection {
+      background-color: rgb(200 160 100 / 40%);
+      color: snow;
+    }
+  }
+
+  .font-heading {
+    font-family: var(--aw-font-heading), serif;
+  }
+</style>

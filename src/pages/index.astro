@@ -1,0 +1,288 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import { getPermalink } from '~/utils/permalinks';
+import { Image } from 'astro:assets';
+
+import heroBg from '~/assets/images/photos/DSC_0417.jpeg';
+import portrait from '~/assets/images/photos/IMG_9453.JPG';
+
+import photo1 from '~/assets/images/photos/DSC_0417.jpeg';
+import photo2 from '~/assets/images/photos/IMG_0420.JPG';
+import photo3 from '~/assets/images/photos/IMG_1659.JPG';
+import photo4 from '~/assets/images/photos/IMG_1708.JPG';
+import photo5 from '~/assets/images/photos/IMG_1782.JPG';
+import photo6 from '~/assets/images/photos/IMG_9492.JPG';
+import resumeBg from '~/assets/images/photos/IMG_1708.JPG';
+
+const metadata = {
+  title: 'Justin Milligan',
+  ignoreTitleTemplate: true,
+};
+
+const socials = [
+  { name: 'LinkedIn', href: 'https://linkedin.com/in/justinmilligan34', icon: 'linkedin' },
+  { name: 'Instagram', href: 'https://instagram.com/justin_m34', icon: 'instagram' },
+  { name: 'Twitter', href: 'https://x.com/justin_m34', icon: 'twitter' },
+  { name: 'Email', href: 'mailto:justin.milligan334@gmail.com', icon: 'email' },
+];
+
+const photos = [
+  { src: photo1, alt: 'Sunset over a lake' },
+  { src: photo2, alt: 'Golden hour from a mountain summit' },
+  { src: photo3, alt: 'Mountain goat on an alpine ridge' },
+  { src: photo4, alt: 'Alpine lake beneath towering peaks' },
+  { src: photo5, alt: 'Chipmunk snacking on a rock' },
+  { src: photo6, alt: 'Niagara Falls with a friend' },
+];
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header
+      links={[
+        { text: 'Home', href: '#' },
+        { text: 'Photos', href: '#photos' },
+        { text: 'Writing', href: '#writing' },
+        { text: 'Work', href: '#work' },
+      ]}
+      isSticky
+      showToggleTheme
+    />
+  </Fragment>
+
+  <!-- ============================================ -->
+  <!-- HERO                                          -->
+  <!-- ============================================ -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <Image
+        src={heroBg}
+        alt="Lake sunset"
+        class="w-full h-full object-cover"
+        widths={[800, 1200, 1800]}
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 text-center px-6 max-w-3xl">
+      <!-- Circular portrait -->
+      <div class="mb-8 flex justify-center">
+        <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-[3px] border-white/20 shadow-2xl shadow-black/40">
+          <Image
+            src={portrait}
+            alt="Justin Milligan"
+            class="w-full h-full object-cover"
+            widths={[200, 400]}
+            loading="eager"
+          />
+        </div>
+      </div>
+
+      <p class="text-xs uppercase tracking-[0.4em] text-white/50 mb-5 font-sans">
+        personal site
+      </p>
+      <h1 class="text-6xl sm:text-7xl md:text-8xl font-heading font-bold text-white leading-[0.9] mb-8 italic">
+        Justin<br />Milligan
+      </h1>
+      <p class="text-lg sm:text-xl text-white/50 font-light max-w-md mx-auto mb-10">
+        how did you end up here?
+      </p>
+
+      <!-- Currently at badge -->
+      <a
+        href="https://www.linkventures.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 mb-10 group"
+      >
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-xs uppercase tracking-[0.2em] text-white/60 group-hover:text-white/80 transition-colors">Currently at</span>
+        <span class="text-sm font-semibold text-white/90 tracking-wide">Link Ventures</span>
+      </a>
+
+      <!-- Social icons -->
+      <div class="flex items-center justify-center gap-5">
+        {socials.map((s) => (
+          <a
+            href={s.href}
+            target={s.icon === 'email' ? undefined : '_blank'}
+            rel="noopener noreferrer"
+            class="text-white/40 hover:text-amber-200 transition-colors duration-300"
+            aria-label={s.name}
+          >
+            {s.icon === 'linkedin' && (
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            )}
+            {s.icon === 'instagram' && (
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            )}
+            {s.icon === 'twitter' && (
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            )}
+            {s.icon === 'email' && (
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+            )}
+          </a>
+        ))}
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <svg class="w-6 h-6 text-white/30" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PHOTO GALLERY — 3x2 grid                     -->
+  <!-- ============================================ -->
+  <section id="photos" class="py-20 sm:py-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-14">
+        <p class="text-xs uppercase tracking-[0.3em] text-muted mb-3">Photos</p>
+        <h2 class="text-4xl sm:text-5xl font-heading font-bold italic mb-6">Some of my favorites</h2>
+        <p class="text-base text-muted max-w-md mx-auto font-light leading-relaxed">
+          I bought a camera in 2022. I have successfully taken 6 good pictures.
+        </p>
+      </div>
+
+      <!-- 3x2 grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+        {photos.map((photo, i) => (
+          <div class="overflow-hidden rounded-lg group aspect-[4/3]">
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              widths={[400, 700]}
+              loading={i < 3 ? "eager" : "lazy"}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- WRITING                                       -->
+  <!-- ============================================ -->
+  <section id="writing" class="py-20 sm:py-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center">
+        <p class="text-xs uppercase tracking-[0.3em] text-muted mb-3">Writing</p>
+        <h2 class="text-4xl sm:text-5xl font-heading font-bold italic mb-6">Words</h2>
+        <p class="text-base text-muted italic">Coming soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- WORK                                          -->
+  <!-- ============================================ -->
+  <section id="work" class="py-20 sm:py-28">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-14">
+        <p class="text-xs uppercase tracking-[0.3em] text-muted mb-3">Documents</p>
+        <h2 class="text-4xl sm:text-5xl font-heading font-bold italic mb-6">Work</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        <!-- Thesis Card — photo background with NBA logo -->
+        <a
+          href="/files/senior-thesis-justin-milligan.pdf"
+          target="_blank"
+          class="group relative overflow-hidden rounded-2xl min-h-[360px] flex flex-col justify-end"
+        >
+          <!-- Photo background (mountain sunset) -->
+          <Image
+            src={photo2}
+            alt=""
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            widths={[500, 800]}
+          />
+          <!-- Dark overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
+
+          <!-- NBA Logo watermark -->
+          <div class="absolute top-6 right-6 opacity-15 group-hover:opacity-25 transition-opacity duration-500">
+            <svg class="w-16 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276.991 569.026">
+              <path fill="transparent" d="M0 0h276.991v569.026H0z"/>
+              <path d="M197.43 503.7c.497-8.029.332-10.678-.754-11.985-.824-.994-1.408-4.093-1.432-7.609-.036-5.326-.751-7.315-7.006-19.461-6.674-12.965-6.913-13.673-5.727-16.952 1.105-3.06.948-4.088-1.47-9.664-2.412-5.562-3.497-6.774-9.957-11.134-12.532-8.457-22.604-17.08-39.377-33.705-18.725-18.567-34.272-38.982-48.689-63.937-5.006-8.664-5.398-9.024-9.82-9.047-3.32-.017-7.307-2.913-7.292-5.301.004-.692-4.059-9.642-9.029-19.886-12.898-26.586-14.001-32.248-10.057-51.606 2.341-11.478 2.781-12.51 7.663-17.915 5.183-5.735 4.37-7.35-4.119-8.189-11.341-1.123-11.225-1.052-13.576-8.329-1.156-3.579-2.102-7.635-2.102-9.013 0-4.567 5.186-19.02 12.316-34.325 3.868-8.306 8.828-19.633 11.021-25.171 7.803-19.708 18.568-35.466 27.26-39.901 3.475-1.773 10.229-3.106 30.328-5.989 11.188-1.605 11.976-2.418 13.583-14.014.935-6.744.842-7.801-.924-10.661-1.274-2.06-1.962-4.976-1.962-8.314 0-4.694.263-5.277 3.021-6.703 2.666-1.378 3.021-2.085 3.021-6.017 0-9.406 1.897-14.643 7.176-19.777a88.325 88.325 0 0 0 3.67-3.77H74.065c-23.482 0-42.52 19.037-42.52 42.52v433.586c0 23.482 19.037 42.521 42.52 42.521H200.55c-.427-.941-1.319-2.465-2.354-3.974-2.878-4.189-2.846-2.718-.766-36.278z" fill="#fff"/>
+              <path d="M203.236 25.325h-36.615c.359.427.877.886 1.507 1.299 4.528 2.966 11.396 10.111 12.492 12.994 1.649 4.341 1.278 10.107-1.05 16.333-1.338 3.574-1.901 6.772-1.523 8.656.712 3.561-2.785 11.11-6.926 14.95-1.493 1.384-3.609 4.26-4.702 6.392-1.093 2.131-3.806 5.848-6.026 8.258s-3.889 5.152-3.703 6.093c.184.942 2.826 3.053 5.871 4.692 3.047 1.639 7.606 4.855 10.135 7.147 2.527 2.292 7.63 6.312 11.339 8.933 13.327 9.421 19.722 25.53 19.788 49.848.029 10.776 5.285 36.033 9.05 43.492 5.157 10.216 7.024 15.848 8.638 26.043 2.072 13.101 2.135 13.249 6.301 14.989 3.981 1.664 14.293 10.035 14.293 11.604 0 .54 1.02 2.41 2.265 4.157l1.39 1.947V67.844c-.004-23.483-19.041-42.519-42.524-42.519zm41.886 284.716c0 .51-2.242 3.379-4.981 6.377-19.104 20.9-51.799 16.244-63.801-9.09-2.904-6.132-3.207-7.672-3.207-16.335 0-8.271.366-10.345 2.698-15.323 3.729-7.956 10.847-15.244 18.628-19.076 3.54-1.742 6.646-3.504 6.898-3.916.254-.411-2.941-7.623-7.102-16.029-9.583-19.365-10.718-22.828-15.066-45.959-1.967-10.455-3.778-19.574-4.029-20.267-.805-2.229-3.618-1.36-10.575 3.264l-6.806 4.524-6.168 15.623c-3.391 8.591-6.168 16.898-6.168 18.457 0 1.755.998 3.767 2.613 5.277 4.031 3.767 5.119 6.533 11.951 30.398 5.034 17.58 6.156 22.716 5.354 24.481-.771 1.688-.271 5.393 2.047 15.171 3.408 14.388 4.679 22.013 6.268 37.606 1.611 15.829 3.315 20.844 12.486 36.75 6.097 10.571 7.969 16.943 12.25 41.693 1.964 11.357 3.947 21.354 4.408 22.214.462.86 2.457 3.971 4.435 6.91 5.438 8.083 6.259 11.802 4.304 19.58-.894 3.553-1.904 8.906-2.246 11.896-.687 5.984 1.479 20.478 3.938 26.365.831 1.987 1.282 4.482 1.005 5.546-.279 1.064.885 6.382 2.583 11.817 5.313 16.998 5.078 24.208-1.041 31.935-1.096 1.384-1.685 2.171-2.036 2.702 18.391-4.684 31.994-21.354 31.994-41.204V309.186c-.369.137-.634.466-.634.855z" fill="#C8102E"/>
+            </svg>
+          </div>
+
+          <!-- Text content -->
+          <div class="relative z-10 p-8">
+            <p class="text-[10px] uppercase tracking-[0.25em] text-white/40 mb-2">Senior Thesis</p>
+            <h3 class="text-2xl sm:text-3xl font-heading font-bold italic text-white leading-tight mb-3 group-hover:text-amber-200 transition-colors duration-300">Rethinking the Arc</h3>
+            <p class="text-xs text-white/50 leading-relaxed mb-5 max-w-sm">
+              An Econometric and Game-Theoretical Analysis of the NBA's Three-Point Reliance and Proposed Rule Changes
+            </p>
+            <span class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-amber-400 group-hover:text-amber-300 transition-colors">
+              Read PDF
+              <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Resume Card — photo background -->
+        <a
+          href="/files/justin-milligan-resume.docx"
+          target="_blank"
+          class="group relative overflow-hidden rounded-2xl min-h-[360px] flex flex-col justify-end"
+        >
+          <!-- Photo background -->
+          <Image
+            src={resumeBg}
+            alt=""
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            widths={[500, 800]}
+          />
+          <!-- Gradient overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
+
+          <!-- Text content -->
+          <div class="relative z-10 p-8">
+            <p class="text-[10px] uppercase tracking-[0.25em] text-white/40 mb-2">For the sake of formality</p>
+            <h3 class="text-2xl sm:text-3xl font-heading font-bold italic text-white leading-tight mb-3 group-hover:text-amber-200 transition-colors duration-300">Resume</h3>
+            <span class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-amber-400 group-hover:text-amber-300 transition-colors">
+              Download
+              <svg class="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FOOTER / CONNECT                              -->
+  <!-- ============================================ -->
+  <section class="py-16 sm:py-20 border-t border-gray-200 dark:border-white/5">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl sm:text-4xl font-heading font-bold italic mb-4">Say hello</h2>
+      <p class="text-muted mb-8">
+        <a href="mailto:justin.milligan334@gmail.com" class="underline decoration-amber-400/50 hover:decoration-amber-400 underline-offset-4 transition-colors">justin.milligan334@gmail.com</a>
+      </p>
+      <div class="flex items-center justify-center gap-6">
+        {socials.filter(s => s.icon !== 'email').map((s) => (
+          <a
+            href={s.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm text-muted hover:text-amber-700 dark:hover:text-amber-400 transition-colors underline underline-offset-4 decoration-transparent hover:decoration-current"
+          >
+            {s.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
