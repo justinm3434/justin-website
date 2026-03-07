@@ -6,6 +6,7 @@ export const headerData = {
     { text: 'photos', href: '/#photos' },
     { text: 'writing', href: '/#writing' },
     { text: 'work', href: '/#work' },
+    { text: 'rxcheck', href: getPermalink('/rxcheck') },
   ],
   actions: [],
 };
