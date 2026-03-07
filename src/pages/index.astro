@@ -44,6 +44,7 @@ const photos = [
         { text: 'Home', href: '#' },
         { text: 'Photos', href: '#photos' },
         { text: 'Writing', href: '#writing' },
+        { text: 'Projects', href: '#projects' },
         { text: 'Work', href: '#work' },
       ]}
       isSticky
@@ -178,6 +179,66 @@ const photos = [
         <p class="text-xs uppercase tracking-[0.3em] text-muted mb-3">Writing</p>
         <h2 class="text-4xl sm:text-5xl font-heading font-bold italic mb-6">Words</h2>
         <p class="text-base text-muted italic">Coming soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PROJECTS                                      -->
+  <!-- ============================================ -->
+  <section id="projects" class="py-20 sm:py-28">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-14">
+        <p class="text-xs uppercase tracking-[0.3em] text-muted mb-3">Projects</p>
+        <h2 class="text-4xl sm:text-5xl font-heading font-bold italic mb-6">Things I'm Building</h2>
+        <p class="text-base text-muted max-w-md mx-auto font-light leading-relaxed">
+          Apps and tools I'm working on. Trying to make something useful.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Wish App -->
+        <a href="https://wish-ten-mu.vercel.app" target="_blank" rel="noopener" class="group relative overflow-hidden rounded-2xl min-h-[280px] flex flex-col justify-end bg-gradient-to-br from-gray-900 to-gray-800 border border-white/5 hover:border-amber-400/20 transition-all duration-300">
+          <!-- Subtle grid pattern -->
+          <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 32px 32px;"></div>
+          <!-- Glow -->
+          <div class="absolute top-0 left-0 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl group-hover:bg-amber-400/20 transition-all duration-500"></div>
+          <div class="absolute bottom-0 right-0 w-24 h-24 bg-emerald-400/10 rounded-full blur-2xl"></div>
+          <div class="relative z-10 p-7">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-400/10 border border-emerald-400/20 text-[10px] uppercase tracking-widest text-emerald-400 mb-4">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              Live
+            </span>
+            <h3 class="text-xl font-heading font-bold italic text-white/80 leading-tight mb-2 group-hover:text-white transition-colors">Wish</h3>
+            <p class="text-xs text-white/30 leading-relaxed">A daily wellness tracker. Set wishes, log mood & health, and watch your score grow.</p>
+          </div>
+        </a>
+
+        <!-- Placeholder card 2 -->
+        <div class="group relative overflow-hidden rounded-2xl min-h-[280px] flex flex-col justify-end bg-gradient-to-br from-gray-900 to-gray-800 border border-white/5">
+          <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 32px 32px;"></div>
+          <div class="absolute bottom-0 right-0 w-32 h-32 bg-sky-400/10 rounded-full blur-2xl"></div>
+          <div class="relative z-10 p-7">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] uppercase tracking-widest text-white/30 mb-4">
+              Idea stage
+            </span>
+            <h3 class="text-xl font-heading font-bold italic text-white/80 leading-tight mb-2">TBD</h3>
+            <p class="text-xs text-white/30 leading-relaxed">Not sure yet. Something good.</p>
+          </div>
+        </div>
+
+        <!-- Placeholder card 3 -->
+        <div class="group relative overflow-hidden rounded-2xl min-h-[280px] flex flex-col justify-end bg-gradient-to-br from-gray-900 to-gray-800 border border-white/5">
+          <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 32px 32px;"></div>
+          <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-400/10 rounded-full blur-2xl"></div>
+          <div class="relative z-10 p-7">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] uppercase tracking-widest text-white/30 mb-4">
+              Idea stage
+            </span>
+            <h3 class="text-xl font-heading font-bold italic text-white/80 leading-tight mb-2">TBD</h3>
+            <p class="text-xs text-white/30 leading-relaxed">Working on it.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
